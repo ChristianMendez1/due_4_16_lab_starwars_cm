@@ -9,11 +9,9 @@ export default function GetAllStarships () {
         return response.json();
       })
       .then(data => {
-        // console.log(data)
         setStarships(data.results)
         console.log(data.results)
       });
-      // console.log(starships)
   }, [])
 
   const starshipsMap = starships.map((starship) => {
