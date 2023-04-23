@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 
-export default function GetAllStarships () {
+export default function Starship (props) {
   const [starships, setStarships] = useState([])
 
   useEffect(() =>{
@@ -10,19 +10,8 @@ export default function GetAllStarships () {
       })
       .then(data => {
         setStarships(data.results)
-        console.log(data.results)
       });
   }, [])
 
-  const starshipsMap = starships.map((starship) => {
-    return(
-      <div class= 'starships'>{starship.name}</div>
-    )
-  })
-
-    return (
-      <div>
-          {starshipsMap}
-      </div>
-    );
+  props.getAllStarships(starships)
   };
